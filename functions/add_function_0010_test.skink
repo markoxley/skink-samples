@@ -1,0 +1,13 @@
+module add_function_0010_test
+
+import "add_function_0010"
+import "testing"
+
+pub fn TestParse() {
+    testing.Reset()
+    result := add_function_0010.parse(28, 45)
+    if result != 73 {
+        testing.Errorf("expected 73, got {result}")
+    }
+}
+

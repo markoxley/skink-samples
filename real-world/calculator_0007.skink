@@ -1,0 +1,27 @@
+module calculator_0007
+
+// calc performs a basic arithmetic operation.
+// op: "add", "sub", "mul", "div"
+pub fn calc(a: float, b: float, op: string) -> float {
+    switch op {
+    case "add":
+        return a + b
+    case "sub":
+        return a - b
+    case "mul":
+        return a * b
+    case "div":
+        if b == 0.0 {
+            return 0.0
+        }
+        return a / b
+    default:
+        return 0.0
+    }
+}
+
+fn main() -> int {
+    result := calc(24.4, 26.1, "add")
+    print("Result: {result}")
+    return 0
+}

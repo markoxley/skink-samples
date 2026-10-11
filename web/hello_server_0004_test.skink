@@ -1,0 +1,13 @@
+module hello_server_0004_test
+
+import "hello_server_0004"
+import "testing"
+
+pub fn TestSetupRoutes() {
+    testing.Reset()
+    route := hello_server_0004.setup_routes()
+    if route != "/elderberry" {
+        testing.Errorf("expected route '/elderberry', got '{route}'")
+    }
+}
+

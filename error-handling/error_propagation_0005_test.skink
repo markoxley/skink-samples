@@ -1,0 +1,18 @@
+module error_propagation_0005_test
+
+import "error_propagation_0005"
+import "testing"
+
+pub fn TestSafeChain() {
+    testing.Reset()
+    result := error_propagation_0005.safe_chain(18.2, 19.9, 21.6)
+    if result != 0.04234133631118556 {
+        testing.Errorf("expected 0.04234133631118556, got {result}")
+    }
+    // Division by zero in chain should return -1
+    result2 := error_propagation_0005.safe_chain(10.0, 0.0, 2.0)
+    if result2 != -1.0 {
+        testing.Errorf("chain with zero divisor should return -1, got {result2}")
+    }
+}
+

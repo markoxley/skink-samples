@@ -1,0 +1,15 @@
+module spawn_worker_0010_test
+
+import "spawn_worker_0010"
+import "testing"
+
+pub fn TestSpawnCompute() {
+    testing.Reset()
+    if spawn_worker_0010.spawn_compute(28) != 56 {
+        testing.Errorf("spawn_compute(28) should return 56")
+    }
+    if spawn_worker_0010.spawn_compute(0) != 0 {
+        testing.Errorf("spawn_compute(0) should return 0")
+    }
+}
+

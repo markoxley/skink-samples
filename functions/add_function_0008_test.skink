@@ -1,0 +1,13 @@
+module add_function_0008_test
+
+import "add_function_0008"
+import "testing"
+
+pub fn TestValidate() {
+    testing.Reset()
+    result := add_function_0008.validate(66, 83)
+    if result != 149 {
+        testing.Errorf("expected 149, got {result}")
+    }
+}
+

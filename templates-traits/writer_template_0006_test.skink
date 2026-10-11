@@ -1,0 +1,14 @@
+module writer_template_0006_test
+
+import "writer_template_0006"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := writer_template_0006.demo()
+    expected := "grape: hello world"
+    if result != expected {
+        testing.Errorf("expected '{expected}', got '{result}'")
+    }
+}
+

@@ -1,0 +1,13 @@
+module add_function_0001_test
+
+import "add_function_0001"
+import "testing"
+
+pub fn TestSub() {
+    testing.Reset()
+    result := add_function_0001.sub(49, 66)
+    if result != 115 {
+        testing.Errorf("expected 115, got {result}")
+    }
+}
+

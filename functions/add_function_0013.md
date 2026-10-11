@@ -1,0 +1,21 @@
+# add_function_0013
+
+A simple Skink function reduce that takes two int parameters and returns their sum.
+
+## Code
+
+```skink
+module add_function_0013
+
+// reduce returns the sum of a and b.
+pub fn reduce(a: int, b: int) -> int {
+    return a + b
+}
+
+fn main() -> int {
+    result := reduce(21, 38)
+    print("Result: {result}")
+    return 0
+}
+
+```

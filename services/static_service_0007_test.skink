@@ -1,0 +1,12 @@
+module static_service_0007_test
+
+import "static_service_0007"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := static_service_0007.demo()
+    if result != 10 {
+        testing.Errorf("demo should return 10 (first dequeued), got {result}")
+    }
+}

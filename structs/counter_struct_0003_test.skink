@@ -1,0 +1,13 @@
+module counter_struct_0003_test
+
+import "counter_struct_0003"
+import "testing"
+
+pub fn TestMakeAndIncrement() {
+    testing.Reset()
+    result := counter_struct_0003.make_and_increment(10, 3)
+    if result != 13 {
+        testing.Errorf("expected 13, got {result}")
+    }
+}
+

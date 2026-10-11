@@ -1,0 +1,40 @@
+module math_utils_module_0002_test
+
+import "mathlib_0002"
+import "testing"
+
+pub fn TestAdd() {
+    testing.Reset()
+    if mathlib_0002.add(10, 20) != 30 {
+        testing.Errorf("add(10,20) should be 30")
+    }
+    if mathlib_0002.add(0, 0) != 0 {
+        testing.Errorf("add(0,0) should be 0")
+    }
+    if mathlib_0002.add(-5, 5) != 0 {
+        testing.Errorf("add(-5,5) should be 0")
+    }
+}
+
+pub fn TestMax() {
+    testing.Reset()
+    if mathlib_0002.max(10, 20) != 20 {
+        testing.Errorf("max(10,20) should be 20")
+    }
+    if mathlib_0002.max(20, 10) != 20 {
+        testing.Errorf("max(20,10) should be 20")
+    }
+}
+
+pub fn TestSquare() {
+    testing.Reset()
+    if mathlib_0002.square(5) != 25 {
+        testing.Errorf("square(5) should be 25")
+    }
+    if mathlib_0002.square(0) != 0 {
+        testing.Errorf("square(0) should be 0")
+    }
+    if mathlib_0002.square(-3) != 9 {
+        testing.Errorf("square(-3) should be 9")
+    }
+}

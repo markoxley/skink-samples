@@ -1,0 +1,18 @@
+module divide_error_0010_test
+
+import "divide_error_0010"
+import "testing"
+
+pub fn TestSafeDivide() {
+    testing.Reset()
+    result := divide_error_0010.safe_divide(33.7, 35.4)
+    if result != 0.9519774011299437 {
+        testing.Errorf("expected 0.9519774011299437, got {result}")
+    }
+    // Division by zero should return -1
+    result2 := divide_error_0010.safe_divide(10.0, 0.0)
+    if result2 != -1.0 {
+        testing.Errorf("division by zero should return -1, got {result2}")
+    }
+}
+

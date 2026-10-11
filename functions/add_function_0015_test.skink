@@ -1,0 +1,13 @@
+module add_function_0015_test
+
+import "add_function_0015"
+import "testing"
+
+pub fn TestGenerate() {
+    testing.Reset()
+    result := add_function_0015.generate(83, 100)
+    if result != 183 {
+        testing.Errorf("expected 183, got {result}")
+    }
+}
+

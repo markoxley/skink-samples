@@ -1,0 +1,12 @@
+module static_rules_0008_test
+
+import "static_rules_0008"
+import "testing"
+
+pub fn TestRestart() {
+    testing.Reset()
+    result := static_rules_0008.test_restart(35.0)
+    if result == 0 {
+        testing.Errorf("rules should fire after restart")
+    }
+}

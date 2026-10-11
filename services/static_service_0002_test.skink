@@ -1,0 +1,15 @@
+module static_service_0002_test
+
+import "static_service_0002"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    s, n := static_service_0002.demo()
+    if s != "hello" {
+        testing.Errorf("Process should return 'hello', got '{s}'")
+    }
+    if n != 5 {
+        testing.Errorf("Length should return 5, got {n}")
+    }
+}

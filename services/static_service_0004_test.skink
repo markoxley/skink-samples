@@ -1,0 +1,12 @@
+module static_service_0004_test
+
+import "static_service_0004"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := static_service_0004.demo()
+    if result != 32 {
+        testing.Errorf("demo should return 32 (popped 30 + size 2), got {result}")
+    }
+}

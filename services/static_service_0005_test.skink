@@ -1,0 +1,12 @@
+module static_service_0005_test
+
+import "static_service_0005"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := static_service_0005.demo()
+    if result != 3 {
+        testing.Errorf("demo should return 3 log entries, got {result}")
+    }
+}

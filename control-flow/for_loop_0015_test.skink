@@ -1,0 +1,21 @@
+module for_loop_0015_test
+
+import "for_loop_0015"
+import "testing"
+
+pub fn TestSumTo() {
+    testing.Reset()
+    if for_loop_0015.sum_to(5) != 15 {
+        testing.Errorf("sum_to(5) should be 15")
+    }
+    if for_loop_0015.sum_to(10) != 55 {
+        testing.Errorf("sum_to(10) should be 55")
+    }
+    if for_loop_0015.sum_to(0) != 0 {
+        testing.Errorf("sum_to(0) should be 0")
+    }
+    if for_loop_0015.sum_to(7) != 28 {
+        testing.Errorf("sum_to(7) should be 28")
+    }
+}
+

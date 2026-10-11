@@ -1,0 +1,51 @@
+module static_rules_0006
+
+import "std/time"
+
+// currentStatus is the simulated system status string.
+var currentStatus: string = "ok"
+// actionFired tracks rule firings.
+var actionFired: int = 0
+
+// StatusRules uses string equality conditions to trigger actions
+// based on the current system status.
+ruleset StatusRules {
+    rule onError when currentStatus == "error" {
+        action: {
+            actionFired = actionFired + 1
+        }
+        priority: 1
+    }
+
+    rule onWarning when currentStatus == "warning" {
+        action: {
+            actionFired = actionFired + 1
+        }
+        priority: 2
+    }
+
+    rule onOk when currentStatus == "ok" {
+        action: {
+            actionFired = actionFired + 1
+        }
+        priority: 10
+    }
+}
+
+// check_status sets the status string and returns the number of firings.
+pub fn check_status(status: string) -> int {
+    currentStatus = status
+    actionFired = 0
+    StatusRules.start()
+    time.SleepMs(50)
+    StatusRules.stop()
+    time.SleepMs(20)
+    StatusRules.reset()
+    return actionFired
+}
+
+fn main() -> int {
+    result := check_status("error")
+    print("Fired: {result}")
+    return 0
+}

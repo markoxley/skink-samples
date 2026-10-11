@@ -1,0 +1,13 @@
+module counter_struct_0004_test
+
+import "counter_struct_0004"
+import "testing"
+
+pub fn TestMakeAndIncrement() {
+    testing.Reset()
+    result := counter_struct_0004.make_and_increment(41, 4)
+    if result != 45 {
+        testing.Errorf("expected 45, got {result}")
+    }
+}
+

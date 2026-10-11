@@ -1,0 +1,15 @@
+module map_ops_0007_test
+
+import "map_ops_0007"
+import "testing"
+
+pub fn TestLookupOrZero() {
+    testing.Reset()
+    if map_ops_0007.build_and_lookup("honeydew") != 35 {
+        testing.Errorf("lookup('honeydew') should be 35")
+    }
+    if map_ops_0007.build_and_lookup("nonexistent") != 0 {
+        testing.Errorf("lookup('nonexistent') should be 0")
+    }
+}
+

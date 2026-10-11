@@ -1,0 +1,63 @@
+# static_rules_0003
+
+Demonstrates the lifecycle methods of a static ruleset: `start()`, `stop()`, and `reset()`. The ruleset is started to begin evaluation, stopped to halt the background thread, and reset to clear all registered rules.
+
+## Code
+
+```skink
+module static_rules_0003
+
+import "std/time"
+
+var currentTemp: float = 20.0
+var firedCount: int = 0
+
+ruleset TempRules {
+    rule high when currentTemp > 30.0 {
+        action: {
+            firedCount = firedCount + 1
+        }
+        priority: 1
+    }
+}
+
+// test_lifecycle verifies that start, stop, and reset work correctly.
+pub fn test_lifecycle(temp: float) -> int {
+    currentTemp = temp
+    firedCount = 0
+    TempRules.start()
+    time.SleepMs(50)
+    afterStart := firedCount
+    TempRules.stop()
+    time.SleepMs(20)
+    TempRules.reset()
+    return afterStart
+}
+
+// test_reset verifies that reset clears the ruleset state.
+pub fn test_reset(temp: float) -> int {
+    currentTemp = temp
+    firedCount = 0
+    TempRules.start()
+    time.SleepMs(50)
+    TempRules.stop()
+    time.SleepMs(20)
+    TempRules.reset()
+    firedCount = 0
+    TempRules.start()
+    time.SleepMs(50)
+    afterRestart := firedCount
+    TempRules.stop()
+    time.SleepMs(20)
+    TempRules.reset()
+    return afterRestart
+}
+
+fn main() -> int {
+    r1 := test_lifecycle(35.0)
+    r2 := test_reset(35.0)
+    print("Lifecycle: {r1}, Reset: {r2}")
+    return 0
+}
+
+```

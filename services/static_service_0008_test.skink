@@ -1,0 +1,12 @@
+module static_service_0008_test
+
+import "static_service_0008"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := static_service_0008.demo()
+    if !result {
+        testing.Errorf("50 should be valid in range 10-100")
+    }
+}

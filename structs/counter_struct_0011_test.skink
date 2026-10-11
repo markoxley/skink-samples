@@ -1,0 +1,13 @@
+module counter_struct_0011_test
+
+import "counter_struct_0011"
+import "testing"
+
+pub fn TestMakeAndIncrement() {
+    testing.Reset()
+    result := counter_struct_0011.make_and_increment(8, 1)
+    if result != 9 {
+        testing.Errorf("expected 9, got {result}")
+    }
+}
+

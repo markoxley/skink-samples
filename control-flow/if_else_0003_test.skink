@@ -1,0 +1,24 @@
+module if_else_0003_test
+
+import "if_else_0003"
+import "testing"
+
+pub fn TestClassify() {
+    testing.Reset()
+    if if_else_0003.classify(95) != "A" {
+        testing.Errorf("95 should be A")
+    }
+    if if_else_0003.classify(85) != "B" {
+        testing.Errorf("85 should be B")
+    }
+    if if_else_0003.classify(75) != "C" {
+        testing.Errorf("75 should be C")
+    }
+    if if_else_0003.classify(65) != "D" {
+        testing.Errorf("65 should be D")
+    }
+    if if_else_0003.classify(55) != "F" {
+        testing.Errorf("55 should be F")
+    }
+}
+

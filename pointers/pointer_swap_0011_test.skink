@@ -1,0 +1,15 @@
+module pointer_swap_0011_test
+
+import "pointer_swap_0011"
+import "testing"
+
+pub fn TestDoubleVal() {
+    testing.Reset()
+    if pointer_swap_0011.double_val(59) != 118 {
+        testing.Errorf("double_val(59) should be 118")
+    }
+    if pointer_swap_0011.double_val(0) != 0 {
+        testing.Errorf("double_val(0) should be 0")
+    }
+}
+

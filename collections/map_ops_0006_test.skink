@@ -1,0 +1,15 @@
+module map_ops_0006_test
+
+import "map_ops_0006"
+import "testing"
+
+pub fn TestLookupOrZero() {
+    testing.Reset()
+    if map_ops_0006.build_and_lookup("grape") != 4 {
+        testing.Errorf("lookup('grape') should be 4")
+    }
+    if map_ops_0006.build_and_lookup("nonexistent") != 0 {
+        testing.Errorf("lookup('nonexistent') should be 0")
+    }
+}
+

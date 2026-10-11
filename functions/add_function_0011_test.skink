@@ -1,0 +1,13 @@
+module add_function_0011_test
+
+import "add_function_0011"
+import "testing"
+
+pub fn TestFormat() {
+    testing.Reset()
+    result := add_function_0011.format(59, 76)
+    if result != 135 {
+        testing.Errorf("expected 135, got {result}")
+    }
+}
+

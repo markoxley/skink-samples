@@ -1,0 +1,27 @@
+module calculator_0006_test
+
+import "calculator_0006"
+import "testing"
+
+pub fn TestCalc() {
+    testing.Reset()
+    if calculator_0006.calc(10.0, 5.0, "add") != 15.0 {
+        testing.Errorf("add should be 15")
+    }
+    if calculator_0006.calc(10.0, 5.0, "sub") != 5.0 {
+        testing.Errorf("sub should be 5")
+    }
+    if calculator_0006.calc(10.0, 5.0, "mul") != 50.0 {
+        testing.Errorf("mul should be 50")
+    }
+    if calculator_0006.calc(10.0, 5.0, "div") != 2.0 {
+        testing.Errorf("div should be 2")
+    }
+    if calculator_0006.calc(10.0, 0.0, "div") != 0.0 {
+        testing.Errorf("div by zero should be 0")
+    }
+    if calculator_0006.calc(1.0, 1.0, "unknown") != 0.0 {
+        testing.Errorf("unknown op should be 0")
+    }
+}
+

@@ -1,0 +1,12 @@
+module hello_world_0012
+
+// greet returns a greeting message for the given name.
+pub fn greet(target: string) -> string {
+    return "Hey, {target}!"
+}
+
+fn main() -> int {
+    msg := greet("mia")
+    print(msg)
+    return 0
+}

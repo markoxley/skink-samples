@@ -1,0 +1,53 @@
+module static_rules_0009
+
+import "std/time"
+
+var tempA: float = 20.0
+var tempB: float = 20.0
+var firedA: int = 0
+var firedB: int = 0
+
+// RulesetA monitors temperature sensor A.
+ruleset RulesetA {
+    rule highA when tempA > 30.0 {
+        action: {
+            firedA = firedA + 1
+        }
+        priority: 1
+    }
+}
+
+// RulesetB monitors temperature sensor B independently.
+ruleset RulesetB {
+    rule highB when tempB > 40.0 {
+        action: {
+            firedB = firedB + 1
+        }
+        priority: 1
+    }
+}
+
+// check_both runs both rulesets and returns their respective fire counts.
+pub fn check_both(a: float, b: float) -> (int, int) {
+    tempA = a
+    tempB = b
+    firedA = 0
+    firedB = 0
+
+    RulesetA.start()
+    RulesetB.start()
+    time.SleepMs(50)
+    RulesetA.stop()
+    RulesetB.stop()
+    time.SleepMs(20)
+    RulesetA.reset()
+    RulesetB.reset()
+
+    return firedA, firedB
+}
+
+fn main() -> int {
+    a, b := check_both(35.0, 45.0)
+    print("A: {a}, B: {b}")
+    return 0
+}

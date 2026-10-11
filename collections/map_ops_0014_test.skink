@@ -1,0 +1,15 @@
+module map_ops_0014_test
+
+import "map_ops_0014"
+import "testing"
+
+pub fn TestLookupOrZero() {
+    testing.Reset()
+    if map_ops_0014.build_and_lookup("plum") != 52 {
+        testing.Errorf("lookup('plum') should be 52")
+    }
+    if map_ops_0014.build_and_lookup("nonexistent") != 0 {
+        testing.Errorf("lookup('nonexistent') should be 0")
+    }
+}
+

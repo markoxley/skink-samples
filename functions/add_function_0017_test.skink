@@ -1,0 +1,13 @@
+module add_function_0017_test
+
+import "add_function_0017"
+import "testing"
+
+pub fn TestSub() {
+    testing.Reset()
+    result := add_function_0017.sub(45, 62)
+    if result != 107 {
+        testing.Errorf("expected 107, got {result}")
+    }
+}
+

@@ -1,0 +1,13 @@
+module hello_server_0008_test
+
+import "hello_server_0008"
+import "testing"
+
+pub fn TestSetupRoutes() {
+    testing.Reset()
+    route := hello_server_0008.setup_routes()
+    if route != "/kiwi" {
+        testing.Errorf("expected route '/kiwi', got '{route}'")
+    }
+}
+

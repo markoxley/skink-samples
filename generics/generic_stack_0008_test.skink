@@ -1,0 +1,13 @@
+module generic_stack_0008_test
+
+import "generic_stack_0008"
+import "testing"
+
+pub fn TestStackDemo() {
+    testing.Reset()
+    result := generic_stack_0008.stack_demo(66, 83, 100)
+    if result != 100 {
+        testing.Errorf("expected 100, got {result}")
+    }
+}
+

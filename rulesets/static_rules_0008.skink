@@ -1,0 +1,43 @@
+module static_rules_0008
+
+import "std/time"
+
+var currentTemp: float = 20.0
+var firedCount: int = 0
+
+ruleset TempRules {
+    rule high when currentTemp > 30.0 {
+        action: {
+            firedCount = firedCount + 1
+        }
+        priority: 1
+    }
+}
+
+// test_restart verifies that restart() (stop + start) allows rules
+// to fire again after being stopped.
+pub fn test_restart(temp: float) -> int {
+    currentTemp = temp
+    firedCount = 0
+
+    // First run
+    TempRules.start()
+    time.SleepMs(50)
+
+    // Restart — should continue evaluating
+    TempRules.restart()
+    time.SleepMs(50)
+    secondRun := firedCount
+
+    TempRules.stop()
+    time.SleepMs(20)
+    TempRules.reset()
+
+    return secondRun
+}
+
+fn main() -> int {
+    result := test_restart(35.0)
+    print("Total fired: {result}")
+    return 0
+}

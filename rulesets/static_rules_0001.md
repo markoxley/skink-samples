@@ -1,0 +1,47 @@
+# static_rules_0001
+
+Demonstrates a basic static ruleset with a single threshold rule. The `TempRules` ruleset contains one rule that fires when `currentTemp > 30.0`, incrementing a counter each time the condition is true.
+
+## Code
+
+```skink
+module static_rules_0001
+
+import "std/time"
+
+// currentTemp is the simulated temperature reading.
+var currentTemp: float = 20.0
+
+// firedCount tracks how many times the rule action has executed.
+var firedCount: int = 0
+
+// TempRules is a static ruleset with a single high-temperature rule.
+ruleset TempRules {
+    rule high when currentTemp > 30.0 {
+        action: {
+            firedCount = firedCount + 1
+        }
+        priority: 1
+    }
+}
+
+// check_high sets the temperature, runs the ruleset briefly, and returns
+// the number of times the high rule fired.
+pub fn check_high(temp: float) -> int {
+    currentTemp = temp
+    firedCount = 0
+    TempRules.start()
+    time.SleepMs(50)
+    TempRules.stop()
+    time.SleepMs(20)
+    TempRules.reset()
+    return firedCount
+}
+
+fn main() -> int {
+    result := check_high(35.0)
+    print("Fired: {result}")
+    return 0
+}
+
+```

@@ -1,0 +1,26 @@
+module static_rules_0009_test
+
+import "static_rules_0009"
+import "testing"
+
+pub fn TestBothRulesetsFire() {
+    testing.Reset()
+    a, b := static_rules_0009.check_both(35.0, 45.0)
+    if a == 0 {
+        testing.Errorf("ruleset A should fire at 35.0")
+    }
+    if b == 0 {
+        testing.Errorf("ruleset B should fire at 45.0")
+    }
+}
+
+pub fn TestOnlyAFires() {
+    testing.Reset()
+    a, b := static_rules_0009.check_both(35.0, 20.0)
+    if a == 0 {
+        testing.Errorf("ruleset A should fire at 35.0")
+    }
+    if b > 0 {
+        testing.Errorf("ruleset B should not fire at 20.0")
+    }
+}

@@ -1,0 +1,28 @@
+module static_rules_0006_test
+
+import "static_rules_0006"
+import "testing"
+
+pub fn TestErrorStatus() {
+    testing.Reset()
+    result := static_rules_0006.check_status("error")
+    if result == 0 {
+        testing.Errorf("error rule should fire for status 'error'")
+    }
+}
+
+pub fn TestOkStatus() {
+    testing.Reset()
+    result := static_rules_0006.check_status("ok")
+    if result == 0 {
+        testing.Errorf("ok rule should fire for status 'ok'")
+    }
+}
+
+pub fn TestUnknownStatus() {
+    testing.Reset()
+    result := static_rules_0006.check_status("unknown")
+    if result > 0 {
+        testing.Errorf("no rules should fire for unknown status")
+    }
+}

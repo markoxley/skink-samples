@@ -1,0 +1,13 @@
+module add_function_0012_test
+
+import "add_function_0012"
+import "testing"
+
+pub fn TestFilter() {
+    testing.Reset()
+    result := add_function_0012.filter(90, 7)
+    if result != 97 {
+        testing.Errorf("expected 97, got {result}")
+    }
+}
+

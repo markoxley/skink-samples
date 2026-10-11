@@ -1,0 +1,15 @@
+module dynamic_rules_0005_test
+
+import "dynamic_rules_0005"
+import "testing"
+
+pub fn TestCheckTriggered() {
+    testing.Reset()
+    if !dynamic_rules_0005.check_triggered(27.2, 32.2) {
+        testing.Errorf("should be triggered when reading > threshold")
+    }
+    if dynamic_rules_0005.check_triggered(100.0, 50.0) {
+        testing.Errorf("should not be triggered when reading < threshold")
+    }
+}
+

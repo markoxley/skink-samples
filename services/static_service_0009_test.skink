@@ -1,0 +1,12 @@
+module static_service_0009_test
+
+import "static_service_0009"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := static_service_0009.demo()
+    if result < 3.13 || result > 3.15 {
+        testing.Errorf("demo should return ~3.14, got {result}")
+    }
+}

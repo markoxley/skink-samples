@@ -1,0 +1,24 @@
+module error_json_parser_0006_test
+
+import "error_json_parser_0006"
+import "testing"
+
+pub fn TestSafeParse() {
+    testing.Reset()
+    p := error_json_parser_0006.safe_parse("{\"name\":\"alice\",\"age\":30}")
+    if p.name != "alice" {
+        testing.Errorf("expected name 'alice', got '{p.name}'")
+    }
+    if p.age != 30 {
+        testing.Errorf("expected age 30, got {p.age}")
+    }
+}
+
+pub fn TestSafeParseInvalid() {
+    testing.Reset()
+    p := error_json_parser_0006.safe_parse("not valid json")
+    if p.name != "unknown" {
+        testing.Errorf("expected 'unknown' for invalid JSON, got '{p.name}'")
+    }
+}
+

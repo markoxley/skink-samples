@@ -1,0 +1,13 @@
+module add_function_0009_test
+
+import "add_function_0009"
+import "testing"
+
+pub fn TestConvert() {
+    testing.Reset()
+    result := add_function_0009.convert(97, 14)
+    if result != 111 {
+        testing.Errorf("expected 111, got {result}")
+    }
+}
+

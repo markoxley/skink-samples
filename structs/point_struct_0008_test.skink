@@ -1,0 +1,13 @@
+module point_struct_0008_test
+
+import "point_struct_0008"
+import "testing"
+
+pub fn TestDistance() {
+    testing.Reset()
+    result := point_struct_0008.distance(26.5, 28.2, 29.9, 31.6)
+    if result != 23.120000000000005 {
+        testing.Errorf("expected 23.120000000000005, got {result}")
+    }
+}
+

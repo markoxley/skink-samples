@@ -1,0 +1,19 @@
+module array_ops_0010_test
+
+import "array_ops_0010"
+import "testing"
+
+pub fn TestSumArr() {
+    testing.Reset()
+    if array_ops_0010.sum_arr([]int{1, 2, 3}) != 6 {
+        testing.Errorf("sum([1,2,3]) should be 6")
+    }
+    if array_ops_0010.sum_arr([]int{}) != 0 {
+        testing.Errorf("sum([]) should be 0")
+    }
+    result := array_ops_0010.build_and_sum()
+    if result != 150 {
+        testing.Errorf("expected 150, got {result}")
+    }
+}
+

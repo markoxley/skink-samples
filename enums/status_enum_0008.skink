@@ -1,0 +1,25 @@
+module status_enum_0008
+
+pub enum Status {
+    Idle,
+    Running,
+    Done,
+    Error,
+}
+
+// describe returns a human-readable description of a Status value.
+pub fn describe(s: int) -> string {
+    return match s {
+        Idle    => "Waiting to start",
+        Running => "In progress",
+        Done    => "Completed successfully",
+        Error   => "Failed with error",
+        _       => "Unknown",
+    }
+}
+
+fn main() -> int {
+    state := Running
+    print(describe(state))
+    return 0
+}

@@ -1,0 +1,13 @@
+module add_function_0004_test
+
+import "add_function_0004"
+import "testing"
+
+pub fn TestProcess() {
+    testing.Reset()
+    result := add_function_0004.process(42, 59)
+    if result != 101 {
+        testing.Errorf("expected 101, got {result}")
+    }
+}
+

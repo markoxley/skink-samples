@@ -1,0 +1,13 @@
+module service_pattern_0004_test
+
+import "service_pattern_0004"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := service_pattern_0004.demo()
+    if result != 15 {
+        testing.Errorf("expected 15, got {result}")
+    }
+}
+

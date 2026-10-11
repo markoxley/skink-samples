@@ -1,0 +1,24 @@
+module status_enum_0009_test
+
+import "status_enum_0009"
+import "testing"
+
+pub fn TestDescribe() {
+    testing.Reset()
+    if status_enum_0009.describe(Idle) != "Waiting to start" {
+        testing.Errorf("Idle description wrong")
+    }
+    if status_enum_0009.describe(Running) != "In progress" {
+        testing.Errorf("Running description wrong")
+    }
+    if status_enum_0009.describe(Done) != "Completed successfully" {
+        testing.Errorf("Done description wrong")
+    }
+    if status_enum_0009.describe(Error) != "Failed with error" {
+        testing.Errorf("Error description wrong")
+    }
+    if status_enum_0009.describe(99) != "Unknown" {
+        testing.Errorf("Unknown description wrong")
+    }
+}
+

@@ -1,0 +1,11 @@
+module main
+
+import "mathlib_0010"
+
+fn main() -> int {
+    sum := mathlib_0010.add(28, 45)
+    mx := mathlib_0010.max(28, 45)
+    sq := mathlib_0010.square(28)
+    print("Sum: {sum}, Max: {mx}, Square: {sq}")
+    return 0
+}

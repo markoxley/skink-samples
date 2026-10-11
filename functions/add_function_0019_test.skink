@@ -1,0 +1,13 @@
+module add_function_0019_test
+
+import "add_function_0019"
+import "testing"
+
+pub fn TestCompute() {
+    testing.Reset()
+    result := add_function_0019.compute(7, 24)
+    if result != 31 {
+        testing.Errorf("expected 31, got {result}")
+    }
+}
+

@@ -1,0 +1,22 @@
+module json_marshal_0011_test
+
+import "json_marshal_0011"
+import "testing"
+
+pub fn TestMakePersonJSON() {
+    testing.Reset()
+    result := json_marshal_0011.make_person_json("leo", 78)
+    expected := "{\"name\":\"leo\",\"age\":78}"
+    if result != expected {
+        testing.Errorf("expected '{expected}', got '{result}'")
+    }
+}
+
+pub fn TestParseName() {
+    testing.Reset()
+    name := json_marshal_0011.parse_name("{\"name\":\"bob\",\"age\":25}")
+    if name != "bob" {
+        testing.Errorf("expected 'bob', got '{name}'")
+    }
+}
+

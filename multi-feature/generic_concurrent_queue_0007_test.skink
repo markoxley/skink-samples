@@ -1,0 +1,13 @@
+module generic_concurrent_queue_0007_test
+
+import "generic_concurrent_queue_0007"
+import "testing"
+
+pub fn TestQueueDemo() {
+    testing.Reset()
+    result := generic_concurrent_queue_0007.queue_demo(35)
+    if result != 70 {
+        testing.Errorf("expected 70, got {result}")
+    }
+}
+

@@ -1,0 +1,13 @@
+module add_function_0006_test
+
+import "add_function_0006"
+import "testing"
+
+pub fn TestTransform() {
+    testing.Reset()
+    result := add_function_0006.transform(4, 21)
+    if result != 25 {
+        testing.Errorf("expected 25, got {result}")
+    }
+}
+

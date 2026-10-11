@@ -1,0 +1,21 @@
+module match_enum_0009_test
+
+import "match_enum_0009"
+import "testing"
+
+pub fn TestColorName() {
+    testing.Reset()
+    if match_enum_0009.color_name(Red) != "red" {
+        testing.Errorf("Red should be 'red'")
+    }
+    if match_enum_0009.color_name(Green) != "green" {
+        testing.Errorf("Green should be 'green'")
+    }
+    if match_enum_0009.color_name(Blue) != "blue" {
+        testing.Errorf("Blue should be 'blue'")
+    }
+    if match_enum_0009.color_name(99) != "unknown" {
+        testing.Errorf("Unknown should be 'unknown'")
+    }
+}
+

@@ -1,0 +1,13 @@
+module add_function_0016_test
+
+import "add_function_0016"
+import "testing"
+
+pub fn TestAdd() {
+    testing.Reset()
+    result := add_function_0016.add(14, 31)
+    if result != 45 {
+        testing.Errorf("expected 45, got {result}")
+    }
+}
+

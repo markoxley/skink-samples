@@ -1,0 +1,13 @@
+module hello_server_0007_test
+
+import "hello_server_0007"
+import "testing"
+
+pub fn TestSetupRoutes() {
+    testing.Reset()
+    route := hello_server_0007.setup_routes()
+    if route != "/honeydew" {
+        testing.Errorf("expected route '/honeydew', got '{route}'")
+    }
+}
+

@@ -1,0 +1,16 @@
+module for_loop_0005
+
+// sum_to returns the sum of integers from 1 to n.
+pub fn sum_to(n: int) -> int {
+    total := 0
+    for i := 1; i <= n; i = i + 1 {
+        total = total + i
+    }
+    return total
+}
+
+fn main() -> int {
+    result := sum_to(12)
+    print("Sum 1..12 = {result}")
+    return 0
+}

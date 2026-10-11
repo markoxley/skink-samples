@@ -1,0 +1,13 @@
+module add_function_0020_test
+
+import "add_function_0020"
+import "testing"
+
+pub fn TestProcess() {
+    testing.Reset()
+    result := add_function_0020.process(38, 55)
+    if result != 93 {
+        testing.Errorf("expected 93, got {result}")
+    }
+}
+

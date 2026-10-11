@@ -1,0 +1,13 @@
+module int_variants_0006_test
+
+import "int_variants_0006"
+import "testing"
+
+pub fn TestSumSizes() {
+    testing.Reset()
+    result := int_variants_0006.sum_sizes()
+    if result != 40 {
+        testing.Errorf("expected 40, got {result}")
+    }
+}
+

@@ -1,0 +1,13 @@
+module add_function_0007_test
+
+import "add_function_0007"
+import "testing"
+
+pub fn TestEvaluate() {
+    testing.Reset()
+    result := add_function_0007.evaluate(35, 52)
+    if result != 87 {
+        testing.Errorf("expected 87, got {result}")
+    }
+}
+

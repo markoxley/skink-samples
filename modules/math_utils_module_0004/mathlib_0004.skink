@@ -1,0 +1,19 @@
+module mathlib_0004
+
+// add returns the sum of a and b.
+pub fn add(a: int, b: int) -> int {
+    return a + b
+}
+
+// max returns the larger of a and b.
+pub fn max(a: int, b: int) -> int {
+    if a > b {
+        return a
+    }
+    return b
+}
+
+// square returns n * n.
+pub fn square(n: int) -> int {
+    return n * n
+}

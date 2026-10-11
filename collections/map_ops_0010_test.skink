@@ -1,0 +1,15 @@
+module map_ops_0010_test
+
+import "map_ops_0010"
+import "testing"
+
+pub fn TestLookupOrZero() {
+    testing.Reset()
+    if map_ops_0010.build_and_lookup("mango") != 28 {
+        testing.Errorf("lookup('mango') should be 28")
+    }
+    if map_ops_0010.build_and_lookup("nonexistent") != 0 {
+        testing.Errorf("lookup('nonexistent') should be 0")
+    }
+}
+

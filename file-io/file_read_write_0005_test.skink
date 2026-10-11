@@ -1,0 +1,18 @@
+module file_read_write_0005_test
+
+import "file_read_write_0005"
+import "testing"
+
+pub fn TestWriteAndRead() {
+    testing.Reset()
+    result := file_read_write_0005.write_and_read("test_file_read_write_0005.txt", "fig orange")
+    if result != "fig orange" {
+        testing.Errorf("expected 'fig orange', got '{result}'")
+    }
+    // Test with different data
+    result2 := file_read_write_0005.write_and_read("test_file_read_write_0005.txt_2", "hello world")
+    if result2 != "hello world" {
+        testing.Errorf("expected 'hello world', got '{result2}'")
+    }
+}
+

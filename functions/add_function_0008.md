@@ -1,0 +1,21 @@
+# add_function_0008
+
+A simple Skink function validate that takes two int parameters and returns their sum.
+
+## Code
+
+```skink
+module add_function_0008
+
+// validate returns the sum of a and b.
+pub fn validate(a: int, b: int) -> int {
+    return a + b
+}
+
+fn main() -> int {
+    result := validate(66, 83)
+    print("Result: {result}")
+    return 0
+}
+
+```

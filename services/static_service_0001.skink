@@ -1,0 +1,43 @@
+module static_service_0001
+
+// Counter is a service interface defining increment, get, and reset operations.
+service Counter {
+    fn Increment(n: int) -> int
+    fn GetValue() -> int
+    fn Reset()
+}
+
+// CounterImpl is the concrete struct that implements the Counter service.
+pub struct CounterImpl {
+    count: int
+}
+
+// service Counter for CounterImpl provides the method implementations.
+service Counter for CounterImpl {
+    fn Increment(self: *CounterImpl, n: int) -> int {
+        self.count = self.count + n
+        return self.count
+    }
+
+    fn GetValue(self: CounterImpl) -> int {
+        return self.count
+    }
+
+    fn Reset(self: *CounterImpl) {
+        self.count = 0
+    }
+}
+
+// demo creates a CounterImpl, increments it, and returns the count.
+pub fn demo() -> int {
+    c := CounterImpl{count: 0}
+    c.Increment(5)
+    c.Increment(10)
+    return c.GetValue()
+}
+
+fn main() -> int {
+    result := demo()
+    print("Count: {result}")
+    return 0
+}

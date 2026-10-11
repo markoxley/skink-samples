@@ -1,0 +1,39 @@
+module static_service_0008
+
+// ValidatorService defines a validation interface.
+service ValidatorService {
+    fn Validate(val: int) -> bool
+    fn Min(val: int) -> bool
+    fn Max(val: int) -> bool
+}
+
+// RangeValidator implements ValidatorService with min/max bounds.
+pub struct RangeValidator {
+    minVal: int
+    maxVal: int
+}
+
+service ValidatorService for RangeValidator {
+    fn Validate(self: RangeValidator, val: int) -> bool {
+        return val >= self.minVal && val <= self.maxVal
+    }
+
+    fn Min(self: RangeValidator, val: int) -> bool {
+        return val >= self.minVal
+    }
+
+    fn Max(self: RangeValidator, val: int) -> bool {
+        return val <= self.maxVal
+    }
+}
+
+pub fn demo() -> bool {
+    v := RangeValidator{minVal: 10, maxVal: 100}
+    return v.Validate(50)
+}
+
+fn main() -> int {
+    result := demo()
+    print("Valid: {result}")
+    return 0
+}

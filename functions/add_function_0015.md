@@ -1,0 +1,21 @@
+# add_function_0015
+
+A simple Skink function generate that takes two int parameters and returns their sum.
+
+## Code
+
+```skink
+module add_function_0015
+
+// generate returns the sum of a and b.
+pub fn generate(a: int, b: int) -> int {
+    return a + b
+}
+
+fn main() -> int {
+    result := generate(83, 100)
+    print("Result: {result}")
+    return 0
+}
+
+```

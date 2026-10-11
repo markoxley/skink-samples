@@ -1,0 +1,22 @@
+module arithmetic_0012_test
+
+import "arithmetic_0012"
+import "testing"
+
+pub fn TestArith() {
+    testing.Reset()
+    s, d, p, q := arithmetic_0012.arith(40, 7)
+    if s != 47 { testing.Errorf("sum should be 47, got {s}") }
+    if d != 33 { testing.Errorf("diff should be 33, got {d}") }
+    if p != 280 { testing.Errorf("prod should be 280, got {p}") }
+    if q != 5 { testing.Errorf("quot should be 5, got {q}") }
+}
+
+pub fn TestPowerOfTwo() {
+    testing.Reset()
+    if arithmetic_0012.power_of_two(0) != 1 { testing.Errorf("2^0 should be 1") }
+    if arithmetic_0012.power_of_two(1) != 2 { testing.Errorf("2^1 should be 2") }
+    if arithmetic_0012.power_of_two(5) != 32 { testing.Errorf("2^5 should be 32") }
+    if arithmetic_0012.power_of_two(10) != 1024 { testing.Errorf("2^10 should be 1024") }
+}
+

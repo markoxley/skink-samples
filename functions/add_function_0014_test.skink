@@ -1,0 +1,13 @@
+module add_function_0014_test
+
+import "add_function_0014"
+import "testing"
+
+pub fn TestAccumulate() {
+    testing.Reset()
+    result := add_function_0014.accumulate(52, 69)
+    if result != 121 {
+        testing.Errorf("expected 121, got {result}")
+    }
+}
+

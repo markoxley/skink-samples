@@ -1,0 +1,38 @@
+module str_module_0014_test
+
+import "str_module_0014"
+import "testing"
+
+pub fn TestCountChars() {
+    testing.Reset()
+    if str_module_0014.count_chars("hello") != 5 {
+        testing.Errorf("len('hello') should be 5")
+    }
+    if str_module_0014.count_chars("") != 0 {
+        testing.Errorf("len('') should be 0")
+    }
+    if str_module_0014.count_chars("plum") != 4 {
+        testing.Errorf("len('plum') should be 4")
+    }
+}
+
+pub fn TestContainsCheck() {
+    testing.Reset()
+    if !str_module_0014.contains_check("hello world", "world") {
+        testing.Errorf("should contain 'world'")
+    }
+    if str_module_0014.contains_check("hello", "xyz") {
+        testing.Errorf("should not contain 'xyz'")
+    }
+}
+
+pub fn TestFindIndex() {
+    testing.Reset()
+    if str_module_0014.find_index("hello", "ll") != 2 {
+        testing.Errorf("indexOf('hello','ll') should be 2")
+    }
+    if str_module_0014.find_index("hello", "xyz") != -1 {
+        testing.Errorf("indexOf('hello','xyz') should be -1")
+    }
+}
+

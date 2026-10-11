@@ -1,0 +1,21 @@
+# hello_world_0015
+
+A hello world example that defines a greet function returning "Howdy, {name}!" and prints a greeting for paul.
+
+## Code
+
+```skink
+module hello_world_0015
+
+// greet returns a greeting message for the given name.
+pub fn greet(target: string) -> string {
+    return "Howdy, {target}!"
+}
+
+fn main() -> int {
+    msg := greet("paul")
+    print(msg)
+    return 0
+}
+
+```

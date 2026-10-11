@@ -1,0 +1,16 @@
+module type_casts_0007_test
+
+import "type_casts_0007"
+import "testing"
+
+pub fn TestCastDemo() {
+    testing.Reset()
+    i, f := type_casts_0007.cast_demo(23.4, 52)
+    if i != 23 {
+        testing.Errorf("expected int 23, got {i}")
+    }
+    if f != 52.0 {
+        testing.Errorf("expected float 52.0, got {f}")
+    }
+}
+

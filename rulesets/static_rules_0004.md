@@ -1,0 +1,59 @@
+# static_rules_0004
+
+Demonstrates rule priorities in a static ruleset. Three rules with different priority levels (critical=1, warning=5, info=10) fire based on temperature thresholds, and the execution order is tracked.
+
+## Code
+
+```skink
+module static_rules_0004
+
+import "std/time"
+
+var currentTemp: float = 20.0
+var executionOrder: []string
+
+// PriorityRules demonstrates rule priorities. Lower priority numbers
+// are evaluated first when the ruleset runs.
+ruleset PriorityRules {
+    rule critical when currentTemp > 40.0 {
+        action: {
+            executionOrder = append(executionOrder, "critical")
+        }
+        priority: 1
+    }
+
+    rule warning when currentTemp > 30.0 {
+        action: {
+            executionOrder = append(executionOrder, "warning")
+        }
+        priority: 5
+    }
+
+    rule info when currentTemp > 20.0 {
+        action: {
+            executionOrder = append(executionOrder, "info")
+        }
+        priority: 10
+    }
+}
+
+// check_priorities sets the temperature and returns the execution order
+// of rules that fired.
+pub fn check_priorities(temp: float) -> []string {
+    currentTemp = temp
+    executionOrder = []string{}
+    PriorityRules.start()
+    time.SleepMs(50)
+    PriorityRules.stop()
+    time.SleepMs(20)
+    PriorityRules.reset()
+    return executionOrder
+}
+
+fn main() -> int {
+    order := check_priorities(45.0)
+    print("Order length: {len(order)}")
+    return 0
+}
+
+```

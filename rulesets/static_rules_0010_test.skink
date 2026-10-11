@@ -1,0 +1,47 @@
+module static_rules_0010_test
+
+import "static_rules_0010"
+import "testing"
+
+pub fn TestCriticalTemp() {
+    testing.Reset()
+    c, _, _, _ := static_rules_0010.check_monitor(42.0, 50.0)
+    if c == 0 {
+        testing.Errorf("critical alert should fire at 42.0")
+    }
+}
+
+pub fn TestHighTemp() {
+    testing.Reset()
+    c, h, _, _ := static_rules_0010.check_monitor(35.0, 50.0)
+    if h == 0 {
+        testing.Errorf("high alert should fire at 35.0")
+    }
+    if c > 0 {
+        testing.Errorf("critical alert should not fire at 35.0")
+    }
+}
+
+pub fn TestHighHumidity() {
+    testing.Reset()
+    _, _, m, _ := static_rules_0010.check_monitor(20.0, 85.0)
+    if m == 0 {
+        testing.Errorf("medium alert should fire at humidity 85.0")
+    }
+}
+
+pub fn TestLowTemp() {
+    testing.Reset()
+    _, _, _, l := static_rules_0010.check_monitor(2.0, 50.0)
+    if l == 0 {
+        testing.Errorf("low alert should fire at 2.0")
+    }
+}
+
+pub fn TestNormalConditions() {
+    testing.Reset()
+    c, h, m, l := static_rules_0010.check_monitor(22.0, 45.0)
+    if c > 0 || h > 0 || m > 0 || l > 0 {
+        testing.Errorf("no alerts should fire under normal conditions")
+    }
+}

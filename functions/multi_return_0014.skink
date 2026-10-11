@@ -1,0 +1,14 @@
+module multi_return_0014
+
+// divmod returns both the quotient and remainder of a / b.
+pub fn divmod(a: int, b: int) -> (int, int) {
+    quotient := a / b
+    remainder := a % b
+    return quotient, remainder
+}
+
+fn main() -> int {
+    q, r := divmod(61, 10)
+    print("Quotient: {q}, Remainder: {r}")
+    return 0
+}

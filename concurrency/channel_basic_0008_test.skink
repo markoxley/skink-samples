@@ -1,0 +1,15 @@
+module channel_basic_0008_test
+
+import "channel_basic_0008"
+import "testing"
+
+pub fn TestSendRecv() {
+    testing.Reset()
+    if channel_basic_0008.send_recv(66) != 66 {
+        testing.Errorf("send_recv(66) should return 66")
+    }
+    if channel_basic_0008.send_recv(0) != 0 {
+        testing.Errorf("send_recv(0) should return 0")
+    }
+}
+

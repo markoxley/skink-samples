@@ -1,0 +1,12 @@
+module unused_var_0010_test
+
+import "unused_var_0010"
+import "testing"
+
+pub fn TestAdd() {
+    testing.Reset()
+    if unused_var_0010.add(28, 45) != 73 {
+        testing.Errorf("add(28, 45) should be 73")
+    }
+}
+

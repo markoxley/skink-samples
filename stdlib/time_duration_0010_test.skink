@@ -1,0 +1,28 @@
+module time_duration_0010_test
+
+import "time_duration_0010"
+import "testing"
+
+pub fn TestSecondsToMs() {
+    testing.Reset()
+    if time_duration_0010.seconds_to_ms(28) != 28000 {
+        testing.Errorf("seconds_to_ms(28) should be 28000")
+    }
+    if time_duration_0010.seconds_to_ms(1) != 1000 {
+        testing.Errorf("seconds_to_ms(1) should be 1000")
+    }
+    if time_duration_0010.seconds_to_ms(0) != 0 {
+        testing.Errorf("seconds_to_ms(0) should be 0")
+    }
+}
+
+pub fn TestMinutesToSeconds() {
+    testing.Reset()
+    if time_duration_0010.minutes_to_seconds(1) != 60 {
+        testing.Errorf("minutes_to_seconds(1) should be 60")
+    }
+    if time_duration_0010.minutes_to_seconds(5) != 300 {
+        testing.Errorf("minutes_to_seconds(5) should be 300")
+    }
+}
+

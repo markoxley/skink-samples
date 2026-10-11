@@ -1,0 +1,10 @@
+module unused_var_0001
+
+pub fn add(a: int, b: int) -> int {
+    return a + b
+}
+
+fn main() -> int {
+    result := add(49, 16)
+    return result
+}

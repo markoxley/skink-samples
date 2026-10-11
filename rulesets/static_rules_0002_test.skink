@@ -1,0 +1,43 @@
+module static_rules_0002_test
+
+import "static_rules_0002"
+import "testing"
+
+pub fn TestHighRule() {
+    testing.Reset()
+    h, l, n := static_rules_0002.check_climate(35.0)
+    if h == 0 {
+        testing.Errorf("high rule should fire at 35.0")
+    }
+    if l > 0 {
+        testing.Errorf("low rule should not fire at 35.0")
+    }
+    if n > 0 {
+        testing.Errorf("normal rule should not fire at 35.0")
+    }
+}
+
+pub fn TestLowRule() {
+    testing.Reset()
+    h, l, _ := static_rules_0002.check_climate(5.0)
+    if l == 0 {
+        testing.Errorf("low rule should fire at 5.0")
+    }
+    if h > 0 {
+        testing.Errorf("high rule should not fire at 5.0")
+    }
+}
+
+pub fn TestNormalRule() {
+    testing.Reset()
+    h, l, n := static_rules_0002.check_climate(20.0)
+    if n == 0 {
+        testing.Errorf("normal rule should fire at 20.0")
+    }
+    if h > 0 {
+        testing.Errorf("high rule should not fire at 20.0")
+    }
+    if l > 0 {
+        testing.Errorf("low rule should not fire at 20.0")
+    }
+}

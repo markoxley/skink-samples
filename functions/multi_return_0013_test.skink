@@ -1,0 +1,16 @@
+module multi_return_0013_test
+
+import "multi_return_0013"
+import "testing"
+
+pub fn TestDivmod() {
+    testing.Reset()
+    q, r := multi_return_0013.divmod(30, 9)
+    if q != 3 {
+        testing.Errorf("expected quotient 3, got {q}")
+    }
+    if r != 3 {
+        testing.Errorf("expected remainder 3, got {r}")
+    }
+}
+

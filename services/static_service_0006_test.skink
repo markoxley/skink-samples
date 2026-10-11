@@ -1,0 +1,12 @@
+module static_service_0006_test
+
+import "static_service_0006"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := static_service_0006.demo()
+    if result != "localhost" {
+        testing.Errorf("demo should return 'localhost', got '{result}'")
+    }
+}

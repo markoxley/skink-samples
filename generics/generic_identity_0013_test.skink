@@ -1,0 +1,18 @@
+module generic_identity_0013_test
+
+import "generic_identity_0013"
+import "testing"
+
+pub fn TestDoIdentity() {
+    testing.Reset()
+    if generic_identity_0013.do_identity(21) != 21 {
+        testing.Errorf("identity(21) should return 21")
+    }
+    if generic_identity_0013.do_identity(0) != 0 {
+        testing.Errorf("identity(0) should return 0")
+    }
+    if generic_identity_0013.do_identity(-1) != -1 {
+        testing.Errorf("identity(-1) should return -1")
+    }
+}
+

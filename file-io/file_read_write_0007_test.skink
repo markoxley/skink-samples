@@ -1,0 +1,18 @@
+module file_read_write_0007_test
+
+import "file_read_write_0007"
+import "testing"
+
+pub fn TestWriteAndRead() {
+    testing.Reset()
+    result := file_read_write_0007.write_and_read("test_file_read_write_0007.txt", "honeydew cyan")
+    if result != "honeydew cyan" {
+        testing.Errorf("expected 'honeydew cyan', got '{result}'")
+    }
+    // Test with different data
+    result2 := file_read_write_0007.write_and_read("test_file_read_write_0007.txt_2", "hello world")
+    if result2 != "hello world" {
+        testing.Errorf("expected 'hello world', got '{result2}'")
+    }
+}
+

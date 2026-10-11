@@ -1,0 +1,14 @@
+module string_concat_0005_test
+
+import "string_concat_0005"
+import "testing"
+
+pub fn TestBuildMessage() {
+    testing.Reset()
+    result := string_concat_0005.build_message("Howdy", "frank", "rome")
+    expected := "Howdy, frank! Welcome from rome."
+    if result != expected {
+        testing.Errorf("expected '{expected}', got '{result}'")
+    }
+}
+

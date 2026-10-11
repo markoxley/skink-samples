@@ -1,0 +1,26 @@
+# generic_identity_0010
+
+Defines a generic identity function using type parameter <T>. Shows explicit type instantiation identity<int>.
+
+## Code
+
+```skink
+module generic_identity_0010
+
+// identity returns the input value unchanged. Demonstrates generic type parameter <T>.
+pub fn identity<T>(x: T) -> T {
+    return x
+}
+
+// do_identity calls identity<int> with a value.
+pub fn do_identity(a: int) -> int {
+    return identity<int>(a)
+}
+
+fn main() -> int {
+    result := do_identity(28)
+    print("Identity: {result}")
+    return 0
+}
+
+```

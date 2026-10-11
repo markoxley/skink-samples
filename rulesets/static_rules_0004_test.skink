@@ -1,0 +1,20 @@
+module static_rules_0004_test
+
+import "static_rules_0004"
+import "testing"
+
+pub fn TestAllRulesFire() {
+    testing.Reset()
+    order := static_rules_0004.check_priorities(45.0)
+    if len(order) == 0 {
+        testing.Errorf("rules should fire at 45.0")
+    }
+}
+
+pub fn TestNoRulesFire() {
+    testing.Reset()
+    order := static_rules_0004.check_priorities(15.0)
+    if len(order) > 0 {
+        testing.Errorf("no rules should fire at 15.0")
+    }
+}

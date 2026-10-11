@@ -1,0 +1,15 @@
+module map_ops_0003_test
+
+import "map_ops_0003"
+import "testing"
+
+pub fn TestLookupOrZero() {
+    testing.Reset()
+    if map_ops_0003.build_and_lookup("date") != 11 {
+        testing.Errorf("lookup('date') should be 11")
+    }
+    if map_ops_0003.build_and_lookup("nonexistent") != 0 {
+        testing.Errorf("lookup('nonexistent') should be 0")
+    }
+}
+

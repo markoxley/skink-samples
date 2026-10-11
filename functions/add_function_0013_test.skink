@@ -1,0 +1,13 @@
+module add_function_0013_test
+
+import "add_function_0013"
+import "testing"
+
+pub fn TestReduce() {
+    testing.Reset()
+    result := add_function_0013.reduce(21, 38)
+    if result != 59 {
+        testing.Errorf("expected 59, got {result}")
+    }
+}
+

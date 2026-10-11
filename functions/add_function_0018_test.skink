@@ -1,0 +1,13 @@
+module add_function_0018_test
+
+import "add_function_0018"
+import "testing"
+
+pub fn TestMul() {
+    testing.Reset()
+    result := add_function_0018.mul(76, 93)
+    if result != 169 {
+        testing.Errorf("expected 169, got {result}")
+    }
+}
+

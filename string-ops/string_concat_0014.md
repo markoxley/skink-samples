@@ -1,0 +1,25 @@
+# string_concat_0014
+
+Demonstrates Skink string concatenation with the + operator and interpolation with {var} syntax.
+
+## Code
+
+```skink
+module string_concat_0014
+
+// build_message concatenates strings using + and interpolation.
+pub fn build_message(greeting: string, name: string, city: string) -> string {
+    // Concatenation with +
+    header := greeting + ", " + name + "!"
+    // Interpolation with {}
+    full := "{header} Welcome from {city}."
+    return full
+}
+
+fn main() -> int {
+    msg := build_message("Greetings", "oscar", "madrid")
+    print(msg)
+    return 0
+}
+
+```

@@ -1,0 +1,14 @@
+module hello_world_0004_test
+
+import "hello_world_0004"
+import "testing"
+
+pub fn TestGreet() {
+    testing.Reset()
+    result := hello_world_0004.greet("eve")
+    expected := "Greetings, eve!"
+    if result != expected {
+        testing.Errorf("expected '{expected}', got '{result}'")
+    }
+}
+

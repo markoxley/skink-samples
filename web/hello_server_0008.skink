@@ -1,0 +1,22 @@
+module hello_server_0008
+
+import "std/web/router"
+import "std/web/types"
+
+// setup_routes creates a router with a hello route and returns the route path.
+pub fn setup_routes() -> string {
+    r := router.NewRouter()
+    r.Get("/kiwi", fn(req: types.Request, w: *types.ResponseWriter) {
+        w.Write("Hello from Skink!")
+    })
+    return "/kiwi"
+}
+
+fn main() -> int {
+    route := setup_routes()
+    print("Configured route: {route}")
+    // Server setup (not started in this sample):
+    // s := server.NewServer(8065, &r)
+    // s.ListenAndServe()
+    return 0
+}

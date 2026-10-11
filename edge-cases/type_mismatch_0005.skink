@@ -1,0 +1,10 @@
+module type_mismatch_0005
+
+pub fn double(x: int) -> int {
+    return x * 2
+}
+
+fn main() -> int {
+    result := double(23)
+    return result
+}

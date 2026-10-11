@@ -1,0 +1,12 @@
+module static_service_0001_test
+
+import "static_service_0001"
+import "testing"
+
+pub fn TestDemo() {
+    testing.Reset()
+    result := static_service_0001.demo()
+    if result != 15 {
+        testing.Errorf("demo should return 15, got {result}")
+    }
+}

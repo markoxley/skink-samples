@@ -1,0 +1,15 @@
+module channel_basic_0014
+
+// send_recv creates a channel, sends val, receives it, and returns it.
+pub fn send_recv(val: int) -> int {
+    ch := make(chan<int>, 1)
+    ch <- val
+    result := <-ch
+    return result
+}
+
+fn main() -> int {
+    result := send_recv(52)
+    print("Received: {result}")
+    return 0
+}

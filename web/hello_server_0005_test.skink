@@ -1,0 +1,13 @@
+module hello_server_0005_test
+
+import "hello_server_0005"
+import "testing"
+
+pub fn TestSetupRoutes() {
+    testing.Reset()
+    route := hello_server_0005.setup_routes()
+    if route != "/fig" {
+        testing.Errorf("expected route '/fig', got '{route}'")
+    }
+}
+

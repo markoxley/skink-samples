@@ -1,0 +1,15 @@
+module map_ops_0004_test
+
+import "map_ops_0004"
+import "testing"
+
+pub fn TestLookupOrZero() {
+    testing.Reset()
+    if map_ops_0004.build_and_lookup("elderberry") != 42 {
+        testing.Errorf("lookup('elderberry') should be 42")
+    }
+    if map_ops_0004.build_and_lookup("nonexistent") != 0 {
+        testing.Errorf("lookup('nonexistent') should be 0")
+    }
+}
+

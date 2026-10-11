@@ -1,0 +1,15 @@
+module type_mismatch_0007_test
+
+import "type_mismatch_0007"
+import "testing"
+
+pub fn TestDouble() {
+    testing.Reset()
+    if type_mismatch_0007.double(35) != 70 {
+        testing.Errorf("double(35) should be 70")
+    }
+    if type_mismatch_0007.double(0) != 0 {
+        testing.Errorf("double(0) should be 0")
+    }
+}
+

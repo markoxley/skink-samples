@@ -1,0 +1,15 @@
+module type_mismatch_0003_test
+
+import "type_mismatch_0003"
+import "testing"
+
+pub fn TestDouble() {
+    testing.Reset()
+    if type_mismatch_0003.double(11) != 22 {
+        testing.Errorf("double(11) should be 22")
+    }
+    if type_mismatch_0003.double(0) != 0 {
+        testing.Errorf("double(0) should be 0")
+    }
+}
+

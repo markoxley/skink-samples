@@ -1,0 +1,13 @@
+module add_function_0005_test
+
+import "add_function_0005"
+import "testing"
+
+pub fn TestCalculate() {
+    testing.Reset()
+    result := add_function_0005.calculate(73, 90)
+    if result != 163 {
+        testing.Errorf("expected 163, got {result}")
+    }
+}
+

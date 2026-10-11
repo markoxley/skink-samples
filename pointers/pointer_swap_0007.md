@@ -1,0 +1,28 @@
+# pointer_swap_0007
+
+Demonstrates Skink pointer operations: & for address-of, * for dereference, and passing *int to functions.
+
+## Code
+
+```skink
+module pointer_swap_0007
+
+// double_ptr doubles the value pointed to by p.
+pub fn double_ptr(p: *int) {
+    *p = *p * 2
+}
+
+// double_val returns twice the input, using pointer operations internally.
+pub fn double_val(x: int) -> int {
+    v := x
+    double_ptr(&v)
+    return v
+}
+
+fn main() -> int {
+    result := double_val(35)
+    print("Doubled: {result}")
+    return 0
+}
+
+```

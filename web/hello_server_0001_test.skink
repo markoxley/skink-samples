@@ -1,0 +1,13 @@
+module hello_server_0001_test
+
+import "hello_server_0001"
+import "testing"
+
+pub fn TestSetupRoutes() {
+    testing.Reset()
+    route := hello_server_0001.setup_routes()
+    if route != "/banana" {
+        testing.Errorf("expected route '/banana', got '{route}'")
+    }
+}
+

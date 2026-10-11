@@ -1,0 +1,13 @@
+module variable_decl_0007_test
+
+import "variable_decl_0007"
+import "testing"
+
+pub fn TestCompute() {
+    testing.Reset()
+    result := variable_decl_0007.compute(52, 69)
+    if result != 838 {
+        testing.Errorf("expected 838, got {result}")
+    }
+}
+

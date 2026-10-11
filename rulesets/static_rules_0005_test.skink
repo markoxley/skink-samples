@@ -1,0 +1,20 @@
+module static_rules_0005_test
+
+import "static_rules_0005"
+import "testing"
+
+pub fn TestAlertFires() {
+    testing.Reset()
+    result := static_rules_0005.check_counter(150)
+    if result == 0 {
+        testing.Errorf("alert rule should fire at count 150")
+    }
+}
+
+pub fn TestNoAlertBelowThreshold() {
+    testing.Reset()
+    result := static_rules_0005.check_counter(10)
+    if result > 0 {
+        testing.Errorf("no rules should fire at count 10")
+    }
+}

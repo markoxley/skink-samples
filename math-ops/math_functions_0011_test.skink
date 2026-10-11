@@ -1,0 +1,38 @@
+module math_functions_0011_test
+
+import "math_functions_0011"
+import "testing"
+
+pub fn TestCircleArea() {
+    testing.Reset()
+    area := math_functions_0011.circle_area(1.0)
+    if area < 3.14 || area > 3.15 {
+        testing.Errorf("circle_area(1.0) should be ~3.14, got {area}")
+    }
+    area2 := math_functions_0011.circle_area(0.0)
+    if area2 != 0.0 {
+        testing.Errorf("circle_area(0.0) should be 0, got {area2}")
+    }
+}
+
+pub fn TestHypotenuse() {
+    testing.Reset()
+    h := math_functions_0011.hypotenuse(3.0, 4.0)
+    if h < 4.99 || h > 5.01 {
+        testing.Errorf("hypotenuse(3,4) should be 5, got {h}")
+    }
+}
+
+pub fn TestClampVal() {
+    testing.Reset()
+    if math_functions_0011.clamp_val(15.0, 0.0, 10.0) != 10.0 {
+        testing.Errorf("clamp(15,0,10) should be 10")
+    }
+    if math_functions_0011.clamp_val(-5.0, 0.0, 10.0) != 0.0 {
+        testing.Errorf("clamp(-5,0,10) should be 0")
+    }
+    if math_functions_0011.clamp_val(5.0, 0.0, 10.0) != 5.0 {
+        testing.Errorf("clamp(5,0,10) should be 5")
+    }
+}
+

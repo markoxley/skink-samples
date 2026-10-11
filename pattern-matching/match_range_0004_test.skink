@@ -1,0 +1,27 @@
+module match_range_0004_test
+
+import "match_range_0004"
+import "testing"
+
+pub fn TestGrade() {
+    testing.Reset()
+    if match_range_0004.grade(95) != "A" {
+        testing.Errorf("95 should be A")
+    }
+    if match_range_0004.grade(85) != "B" {
+        testing.Errorf("85 should be B")
+    }
+    if match_range_0004.grade(75) != "C" {
+        testing.Errorf("75 should be C")
+    }
+    if match_range_0004.grade(65) != "D" {
+        testing.Errorf("65 should be D")
+    }
+    if match_range_0004.grade(55) != "F" {
+        testing.Errorf("55 should be F")
+    }
+    if match_range_0004.grade(0) != "F" {
+        testing.Errorf("0 should be F")
+    }
+}
+
