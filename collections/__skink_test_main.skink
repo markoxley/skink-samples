@@ -1,0 +1,14 @@
+module main
+import "std/testing"
+import "map_ops_0003_test"
+
+fn main() -> int {
+    passed := true
+    testing.Reset()
+    map_ops_0003_test.TestLookupOrZero()
+    if testing.Failed() {
+        passed = false
+    }
+    if passed { return 0 }
+    return 1
+}
