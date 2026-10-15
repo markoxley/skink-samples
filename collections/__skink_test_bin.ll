@@ -254,20 +254,20 @@ declare i64 @Skink_rc_peak_bytes()
 @str.162 = private global [51 x i8] c"AssertError failed: expected error but got none - \00"
 @str.163 = private global [1 x i8] c"\00"
 @str.164 = private global [1 x i8] c"\00"
-@str.165 = private global [5 x i8] c"date\00"
+@str.165 = private global [6 x i8] c"apple\00"
 @str.166 = private global [31 x i8] c"assignment to entry in nil map\00"
-@str.167 = private global [11 x i8] c"elderberry\00"
+@str.167 = private global [7 x i8] c"banana\00"
 @str.168 = private global [31 x i8] c"assignment to entry in nil map\00"
-@str.169 = private global [4 x i8] c"fig\00"
+@str.169 = private global [7 x i8] c"cherry\00"
 @str.170 = private global [31 x i8] c"assignment to entry in nil map\00"
-@str.171 = private global [5 x i8] c"date\00"
+@str.171 = private global [6 x i8] c"apple\00"
 @str.172 = private global [9 x i8] c"Lookup: \00"
 @str.173 = private global [3 x i8] c"%d\00"
 @str.174 = private global [1 x i8] c"\00"
 @str.175 = private global [1 x i8] c"\00"
 @str.176 = private global [3 x i8] c"%s\00"
-@str.177 = private global [5 x i8] c"date\00"
-@str.178 = private global [28 x i8] c"lookup('date') should be 11\00"
+@str.177 = private global [6 x i8] c"apple\00"
+@str.178 = private global [29 x i8] c"lookup('apple') should be 83\00"
 @str.179 = private global [12 x i8] c"nonexistent\00"
 @str.180 = private global [34 x i8] c"lookup('nonexistent') should be 0\00"
 define i8* @libc.malloc(i32 %arg0) {
@@ -6936,7 +6936,7 @@ entry:
   ret i64 %r1
 
 }
-define i32 @map_ops_0003.lookup_or_zero(%map_i8Ptr__i32* %arg0, i8* %arg1) {
+define i32 @map_ops_0015.lookup_or_zero(%map_i8Ptr__i32* %arg0, i8* %arg1) {
 entry:
   %r1 = alloca %map_i8Ptr__i32*
   store %map_i8Ptr__i32* null, %map_i8Ptr__i32** %r1
@@ -7058,7 +7058,7 @@ L3:
   ret i32 %r37
 
 }
-define i32 @map_ops_0003.build_and_lookup(i8* %arg0) {
+define i32 @map_ops_0015.build_and_lookup(i8* %arg0) {
 entry:
   %r1 = alloca i8*
   store i8* null, i8** %r1
@@ -7105,7 +7105,7 @@ entry:
 
   store %map_i8Ptr__i32* %r6, %map_i8Ptr__i32** %r2
   %r14 = load %map_i8Ptr__i32*, %map_i8Ptr__i32** %r2
-  %r15 = getelementptr inbounds [5 x i8], [5 x i8]* @str.165, i64 0, i64 0
+  %r15 = getelementptr inbounds [6 x i8], [6 x i8]* @str.165, i64 0, i64 0
 
   %r16 = icmp eq %map_i8Ptr__i32* %r14, null
 
@@ -7217,7 +7217,7 @@ L9:
 
   %r50 = getelementptr inbounds i32, i32* %r21, i32 %r49
 
-  store i32 11, i32* %r50
+  store i32 83, i32* %r50
 
   br label %L11
 L10:
@@ -7421,7 +7421,7 @@ L24:
   store i8* %r15, i8** %r116
   %r118 = getelementptr inbounds i32, i32* %r71, i32 %r115
 
-  store i32 11, i32* %r118
+  store i32 83, i32* %r118
   %r119 = getelementptr inbounds i8, i8* %r74, i32 %r115
 
   store i8 1, i8* %r119
@@ -7499,7 +7499,7 @@ L27:
   store i8* %r15, i8** %r136
   %r138 = getelementptr inbounds i32, i32* %r21, i32 %r135
 
-  store i32 11, i32* %r138
+  store i32 83, i32* %r138
   %r139 = getelementptr inbounds i8, i8* %r23, i32 %r135
 
   store i8 1, i8* %r139
@@ -7512,7 +7512,7 @@ L27:
 L11:
 
   %r141 = load %map_i8Ptr__i32*, %map_i8Ptr__i32** %r2
-  %r142 = getelementptr inbounds [11 x i8], [11 x i8]* @str.167, i64 0, i64 0
+  %r142 = getelementptr inbounds [7 x i8], [7 x i8]* @str.167, i64 0, i64 0
 
   %r143 = icmp eq %map_i8Ptr__i32* %r141, null
 
@@ -7624,7 +7624,7 @@ L36:
 
   %r177 = getelementptr inbounds i32, i32* %r148, i32 %r176
 
-  store i32 28, i32* %r177
+  store i32 100, i32* %r177
 
   br label %L38
 L37:
@@ -7828,7 +7828,7 @@ L51:
   store i8* %r142, i8** %r243
   %r245 = getelementptr inbounds i32, i32* %r198, i32 %r242
 
-  store i32 28, i32* %r245
+  store i32 100, i32* %r245
   %r246 = getelementptr inbounds i8, i8* %r201, i32 %r242
 
   store i8 1, i8* %r246
@@ -7906,7 +7906,7 @@ L54:
   store i8* %r142, i8** %r263
   %r265 = getelementptr inbounds i32, i32* %r148, i32 %r262
 
-  store i32 28, i32* %r265
+  store i32 100, i32* %r265
   %r266 = getelementptr inbounds i8, i8* %r150, i32 %r262
 
   store i8 1, i8* %r266
@@ -7919,7 +7919,7 @@ L54:
 L38:
 
   %r268 = load %map_i8Ptr__i32*, %map_i8Ptr__i32** %r2
-  %r269 = getelementptr inbounds [4 x i8], [4 x i8]* @str.169, i64 0, i64 0
+  %r269 = getelementptr inbounds [7 x i8], [7 x i8]* @str.169, i64 0, i64 0
 
   %r270 = icmp eq %map_i8Ptr__i32* %r268, null
 
@@ -8031,7 +8031,7 @@ L63:
 
   %r304 = getelementptr inbounds i32, i32* %r275, i32 %r303
 
-  store i32 45, i32* %r304
+  store i32 17, i32* %r304
 
   br label %L65
 L64:
@@ -8235,7 +8235,7 @@ L78:
   store i8* %r269, i8** %r370
   %r372 = getelementptr inbounds i32, i32* %r325, i32 %r369
 
-  store i32 45, i32* %r372
+  store i32 17, i32* %r372
   %r373 = getelementptr inbounds i8, i8* %r328, i32 %r369
 
   store i8 1, i8* %r373
@@ -8313,7 +8313,7 @@ L81:
   store i8* %r269, i8** %r390
   %r392 = getelementptr inbounds i32, i32* %r275, i32 %r389
 
-  store i32 45, i32* %r392
+  store i32 17, i32* %r392
   %r393 = getelementptr inbounds i8, i8* %r277, i32 %r389
 
   store i8 1, i8* %r393
@@ -8327,7 +8327,7 @@ L65:
 
   %r395 = load %map_i8Ptr__i32*, %map_i8Ptr__i32** %r2
   %r396 = load i8*, i8** %r1
-  %r397 = call i32 @map_ops_0003.lookup_or_zero(%map_i8Ptr__i32* %r395, i8* %r396)
+  %r397 = call i32 @map_ops_0015.lookup_or_zero(%map_i8Ptr__i32* %r395, i8* %r396)
   %r398 = load %map_i8Ptr__i32*, %map_i8Ptr__i32** %r12
   %r399 = bitcast %map_i8Ptr__i32* %r398 to i8*
 
@@ -8344,7 +8344,7 @@ L65:
   ret i32 %r397
 
 }
-define i32 @map_ops_0003.main() {
+define i32 @map_ops_0015.main() {
 entry:
   %r1 = alloca i32
   store i32 0, i32* %r1
@@ -8353,9 +8353,9 @@ entry:
   %r21 = alloca i8*
   store i8* null, i8** %r21
 
-  %r2 = getelementptr inbounds [5 x i8], [5 x i8]* @str.171, i64 0, i64 0
+  %r2 = getelementptr inbounds [6 x i8], [6 x i8]* @str.171, i64 0, i64 0
 
-  %r3 = call i32 @map_ops_0003.build_and_lookup(i8* %r2)
+  %r3 = call i32 @map_ops_0015.build_and_lookup(i8* %r2)
   store i32 %r3, i32* %r1
   %r4 = getelementptr inbounds [9 x i8], [9 x i8]* @str.172, i64 0, i64 0
 
@@ -8395,23 +8395,23 @@ entry:
   ret i32 0
 
 }
-define void @map_ops_0003_test.TestLookupOrZero() {
+define void @map_ops_0015_test.TestLookupOrZero() {
 entry:
   call void @testing.Reset()
-  %r1 = getelementptr inbounds [5 x i8], [5 x i8]* @str.177, i64 0, i64 0
+  %r1 = getelementptr inbounds [6 x i8], [6 x i8]* @str.177, i64 0, i64 0
 
-  %r2 = call i32 @map_ops_0003.build_and_lookup(i8* %r1)
-  %r3 = icmp ne i32 %r2, 11
+  %r2 = call i32 @map_ops_0015.build_and_lookup(i8* %r1)
+  %r3 = icmp ne i32 %r2, 83
   br i1 %r3, label %L1, label %L3
 L1:
-  %r4 = getelementptr inbounds [28 x i8], [28 x i8]* @str.178, i64 0, i64 0
+  %r4 = getelementptr inbounds [29 x i8], [29 x i8]* @str.178, i64 0, i64 0
 
   call void @testing.Errorf(i8* %r4)
   br label %L3
 L3:
   %r5 = getelementptr inbounds [12 x i8], [12 x i8]* @str.179, i64 0, i64 0
 
-  %r6 = call i32 @map_ops_0003.build_and_lookup(i8* %r5)
+  %r6 = call i32 @map_ops_0015.build_and_lookup(i8* %r5)
   %r7 = icmp ne i32 %r6, 0
   br i1 %r7, label %L4, label %L6
 L4:
@@ -8430,7 +8430,7 @@ entry:
 
   store i1 1, i1* %r1
   call void @testing.Reset()
-  call void @map_ops_0003_test.TestLookupOrZero()
+  call void @map_ops_0015_test.TestLookupOrZero()
   %r2 = call i1 @testing.Failed()
   br i1 %r2, label %L1, label %L3
 L1:
