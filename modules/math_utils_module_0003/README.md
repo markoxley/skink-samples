@@ -6,7 +6,7 @@ A multi-file Skink module project demonstrating module declaration, pub exports,
 
 - `mathlib_0003.skink` — module with pub fn add, max, square
 - `main.skink` — imports the module and calls its functions
-- `mathlib_0003_test.skink` — tests the module's exported functions
+- `math_utils_module_0003_test.skink` — tests the module's exported functions
 
 ## Module File
 
